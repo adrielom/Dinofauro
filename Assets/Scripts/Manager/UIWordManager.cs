@@ -10,6 +10,8 @@ public class SFX {
 
 public class UIWordManager : MonoBehaviour {
 
+    public static int gO;
+
     public GameObject wordPrefab;
     public GameObject rootWords;
 
@@ -42,6 +44,7 @@ public class UIWordManager : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
+        gO = 0;
         Instance = this;
         memeM = GameObject.Find("_Game Manager").GetComponent<MemeManager>();
         extraTime.rectTransform.sizeDelta = new Vector2 (0, 0);
@@ -216,6 +219,7 @@ public class UIWordManager : MonoBehaviour {
     void CheckVictory () {
         if (currentErrors <= 0 || currentTime <= 0f) {
             Application.LoadLevel ("Game Over");
+            gO = 1;
         }
     }
 
